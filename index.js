@@ -10,13 +10,12 @@ const residence = require('residence');
 
 //////////////////////////////////////
 
-var configs = {};   //all configs in this node.js process will be stored in this here hash, make sure it's finite data
+const configs = {};   //all configs in this node.js process will be stored in this here hash, make sure it's finite data
 
 //////////////////////////////////////
 
 
-
-module.exports = function (module, identifier, pathToProvider) {
+module.exports = function initModuleConfigViaAdore(module, identifier, pathToProvider) {
 
 
     if (typeof module !== 'object' || !module.filename) {
@@ -42,11 +41,10 @@ module.exports = function (module, identifier, pathToProvider) {
                     configPath = path.resolve(path.normalize(root + '/' + pathToProvider));
                 }
 
-                var f = require(configPath);
-                return configs[identifier] = f();
+                return configs[identifier] = require(configPath)();
             }
             catch (err) {
-                throw new Error('univ-config could not resolve the path to your config provider module - given as: ' + pathToProvider +  '\n\n .... or this happened: ' + err.stack);
+                throw new Error('adore package could not resolve the path to your config provider module - given as: ' + pathToProvider +  '\n\n .... or this happened: ' + err.stack);
             }
         }
         else {
