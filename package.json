@@ -1,0 +1,19 @@
+{
+  "name": "adore",
+  "version": "1.4.31",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/suman/index --rnr test/test1.js",
+    "test_local": "suman test/test1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "residence": "0.0.1"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "suman": "^1.1.3"
+  }
+}
