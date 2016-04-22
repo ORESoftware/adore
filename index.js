@@ -19,11 +19,11 @@ module.exports = function initModuleConfigViaAdore(module, identifier, pathToPro
 
 
     if (typeof module !== 'object' || !module.filename) {
-        throw new Error('first argument to univ-config function must be "module"');
+        throw new Error('first argument to adore function must be "module"');
     }
 
     if (String(identifier).indexOf('*') < 0) {
-        throw new Error('did not pass in an identifier to univ-config');
+        throw new Error('did not pass in an identifier to adore');
     }
 
     if (configs[identifier]) {
@@ -48,7 +48,7 @@ module.exports = function initModuleConfigViaAdore(module, identifier, pathToPro
             }
         }
         else {
-            throw new Error('no config key matched the identifier but no path to config provider was passed to univ-config');
+            throw new Error('no config key matched the identifier but no path to config provider was passed to adore');
         }
     }
 
